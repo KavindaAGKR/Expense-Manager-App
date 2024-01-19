@@ -17,19 +17,19 @@ class Database {
           name: "name",
           amount: 12.4,
           dateTime: DateTime.now(),
-          category: Category.apparel,
+          category: Category.clothes,
           description: "Description"),
       Expense(
           name: "name",
           amount: 12.4,
           dateTime: DateTime.now(),
-          category: Category.apparel,
+          category: Category.clothes,
           description: "Description"),
       Expense(
           name: "name",
           amount: 12.4,
           dateTime: DateTime.now(),
-          category: Category.apparel,
+          category: Category.clothes,
           description: "Description"),
     ];
 

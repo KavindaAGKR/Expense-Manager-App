@@ -18,36 +18,27 @@ class ExpenseModel extends ChangeNotifier {
 enum Category {
   food,
   travel,
-  leasure,
+  leisure,
   work,
   health,
   education,
   transportation,
-  apparel
+  clothes
 }
 
 //category icons
 final CategoryColors = {
   Category.food: const Color.fromARGB(255, 8, 91, 236),
-  Category.travel: Color.fromARGB(165, 2, 222, 98),
-  Category.leasure: Colors.pinkAccent,
-  Category.work: Color.fromARGB(249, 255, 255, 54),
-  Category.health: const Color.fromARGB(255, 124, 122, 120),
-  Category.education: Color.fromARGB(255, 0, 166, 160),
-  Category.transportation: Colors.indigoAccent,
-  Category.apparel: Color.fromARGB(255, 171, 2, 174),
+  Category.travel: Color.fromARGB(248, 2, 203, 106),
+  Category.leisure: Color.fromARGB(255, 238, 24, 96),
+  Category.work: Color.fromARGB(248, 246, 246, 0),
+  Category.health: Color.fromARGB(255, 168, 84, 0),
+  Category.education: Color.fromARGB(255, 164, 51, 220),
+  Category.transportation: Color.fromARGB(255, 76, 76, 76),
+  Category.clothes: Color.fromARGB(255, 99, 212, 0),
 };
 
-// final CategoryColor = {
-//   Category.food : Icons.abc,
-//   Category.travel,
-//   Category.leasure,
-//   Category.work,
-//   Category.health,
-//   Category.education,
-//   Category.transportation,
-//   Category.apparel,
-// };
+//category icons
 
 final formattedDate = DateFormat.yMd();
 

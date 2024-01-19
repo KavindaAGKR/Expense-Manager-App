@@ -45,7 +45,6 @@ class ExpenseList extends StatelessWidget {
 
     //  required this.onDeleteExpense,
   }) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
@@ -58,6 +57,17 @@ class ExpenseList extends StatelessWidget {
           onDismissed: (direction) {
             onDeleteExpense(expenseList[index]);
           },
+          
+          background: Container(
+            color: const Color.fromARGB(255, 244, 146, 54),
+            height: 20, // Change this color to the desired color
+            padding: EdgeInsets.symmetric(horizontal: 20),
+            alignment: AlignmentDirectional.centerStart,
+            child: Icon(
+              Icons.delete,
+              color: Colors.white,
+            ),
+          ),
           child: ExpenseTile(expense: expenseList[index]),
         );
       },

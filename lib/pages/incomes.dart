@@ -119,7 +119,7 @@ class _CategoriesState extends State<Incomes> {
       body: Column(
         children: [
           Container(
-            color: const Color.fromARGB(255, 87, 87, 87),
+            color: Color.fromARGB(255, 0, 0, 0),
             height: 100,
             width: double.infinity,
             child: const Center(
@@ -128,22 +128,25 @@ class _CategoriesState extends State<Incomes> {
                 style: TextStyle(
                     fontSize: 30,
                     fontWeight: FontWeight.bold,
-                    color: Color.fromARGB(255, 239, 247, 88)),
+                    color: Color.fromARGB(255, 255, 255, 255)),
               ),
             ),
           ),
+          SizedBox(
+            height: 20,
+          ),
           Container(
+            margin:
+                const EdgeInsets.only(top: 0, left: 20, right: 20, bottom: 0),
             height: 170,
             width: double.infinity,
             //color: const Color.fromARGB(255, 119, 119, 119),
             child: Container(
-              margin: const EdgeInsets.only(
-                  top: 20, left: 10, right: 10, bottom: 20),
               height: 300,
               width: double.infinity,
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
-                color: const Color.fromARGB(255, 0, 0, 0),
+                borderRadius: BorderRadius.circular(25),
+                color: Color.fromARGB(223, 241, 173, 13),
               ),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -151,7 +154,7 @@ class _CategoriesState extends State<Incomes> {
                   Text(
                     'Total Income : \Rs ${calculateTotalIncome().toStringAsFixed(2)}',
                     style: const TextStyle(
-                        color: Colors.white,
+                        color: Color.fromARGB(255, 255, 255, 255),
                         fontSize: 25,
                         fontWeight: FontWeight.bold),
                   ),
@@ -160,18 +163,18 @@ class _CategoriesState extends State<Incomes> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         const Text(
-                          'Today is : ',
+                          'Today : ',
                           style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 15,
+                            color: Color.fromARGB(255, 0, 0, 0),
+                            fontSize: 20,
                             //fontWeight: FontWeight.bold
                           ),
                         ),
                         Text(
                           DateTime.now().toString().substring(0, 10),
                           style: const TextStyle(
-                            color: Colors.white,
-                            fontSize: 15,
+                            color: Color.fromARGB(255, 0, 0, 0),
+                            fontSize: 20,
 
                             //fontWeight: FontWeight.bold
                           ),
@@ -183,20 +186,48 @@ class _CategoriesState extends State<Incomes> {
               ),
             ),
           ),
+          SizedBox(
+            height: 25,
+          ),
           const Text(
             'Income History',
-            style: TextStyle(fontSize: 20),
+            style: TextStyle(
+              fontSize: 20,
+              decoration: TextDecoration.underline,
+            ),
+          ),
+          const SizedBox(
+            height: 10,
           ),
           Expanded(
             child: _incomeList(),
           ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(5.0),
+                child: FloatingActionButton(
+                  onPressed: addIncome,
+                  child: const Icon(Icons.add),
+                  backgroundColor: Color.fromARGB(255, 245, 187, 0),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(100.0),
+                  ),
+                ),
+              ),
+            ],
+          )
         ],
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: addIncome,
-        child: const Icon(Icons.add),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
+      // floatingActionButton: FloatingActionButton(
+      //   onPressed: addIncome,
+      //   child: const Icon(Icons.add),
+      //   backgroundColor: Color.fromARGB(255, 235, 4, 220),
+      //             shape: RoundedRectangleBorder(
+      //               borderRadius: BorderRadius.circular(100.0),
+      //             ),
+      // ),
     );
   }
 
@@ -204,7 +235,8 @@ class _CategoriesState extends State<Incomes> {
     return ListView.separated(
       itemCount: db.incomeList.length,
       separatorBuilder: (context, index) => const SizedBox(
-        height: 15,
+        height: 10,
+        //width: 50,
       ),
       itemBuilder: (context, index) {
         return Dismissible(
@@ -215,33 +247,32 @@ class _CategoriesState extends State<Incomes> {
           },
           child: Container(
             height: 75,
-            width: 20,
+            //width: 20,
+            margin: EdgeInsets.only(left: 20, right: 20),
             child: Padding(
-              padding: const EdgeInsets.only(left: 50, right: 50),
+              padding: const EdgeInsets.only(left: 20, right: 20),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
                     db.incomeList[index].name.toString(),
-                    style: TextStyle(fontSize: 18),
+                    style: TextStyle(fontSize: 20),
                   ),
                   Text(
                     'Rs ' + db.incomeList[index].amount.toString(),
-                    style: TextStyle(fontSize: 18),
+                    style: TextStyle(fontSize: 20),
                   ),
                 ],
               ),
             ),
             decoration: BoxDecoration(
-                color: Color.fromARGB(255, 170, 167, 167),
-                borderRadius: BorderRadius.circular(16),
-                boxShadow: [
-                  BoxShadow(
-                      color: Color(0xff1D1617).withOpacity(0.07),
-                      offset: Offset(0, 10),
-                      blurRadius: 40,
-                      spreadRadius: 0)
-                ]),
+              color: Color.fromARGB(255, 141, 137, 140),
+              borderRadius: BorderRadius.circular(16),
+
+              //
+              //
+              //
+            ),
           ),
         );
       },
